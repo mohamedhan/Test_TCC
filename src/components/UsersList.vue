@@ -86,7 +86,7 @@
               <v-btn
                 color="blue darken-1"
                 text
-                @click="save"
+                @click=  "save"
               >
                 Save
               </v-btn>
