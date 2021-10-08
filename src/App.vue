@@ -1,28 +1,34 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-app>
+     <UsersList />
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import UsersList from "./components/UsersList.vue"
 export default {
   name: "App",
+
   components: {
-    HelloWorld,
+    UsersList
   },
+ data() {
+    return {
+      fields: [
+        { key: "lastName", label: "Last Name" },
+        { key: "firstName", label: "First Name" },
+        { key: "email", label: "Email" },
+        { key: "Actions", label: "Actions" },
+      ],
+    };
+  },
+ 
+  methods: {
+    delete(id) {
+      console.log("deleteeeeeeee", id);
+      this.$emit("delete-person", id);
+    },
+  },
+
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
